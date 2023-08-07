@@ -60,6 +60,6 @@ public class UserController {
         return Result.success();
     }
 
-
+    //查看仿真设备详细信息
 
 }

@@ -1,16 +1,21 @@
 package com.cqupt;
 
-import com.cqupt.utils.JwtUtils;
-import io.jsonwebtoken.Claims;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cqupt.entity.SimulationEquipment;
+import com.cqupt.mapper.SimulationEquipmentMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @SpringBootTest
 class VirtualSimulationTeachingSystemApplicationTests {
+      @Autowired
+      private SimulationEquipmentMapper simulationEquipmentMapper;
 
 //    @Test
 //    void contextLoads() {
@@ -26,4 +31,14 @@ class VirtualSimulationTeachingSystemApplicationTests {
 //       claims.get("") ;
 //    log.info("信息{}",s1);
 //    }
+    @Test
+    public void testPage(){
+        //坑，大坑，用的springboot3.0以上版本，mybatisplus需要用3.5.3.1版本
+        // 服了啊，前前后后搞了半天左右
+        Page<SimulationEquipment> page = new Page<SimulationEquipment>(1,3);
+       simulationEquipmentMapper.selectPage(page, null);
+        System.out.println(page.getRecords());
+//        SimulationEquipment simulationEquipment = simulationEquipmentMapper.selectById(1);
+//        System.out.println(simulationEquipment);
+    }
 }
