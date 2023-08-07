@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mapper.MenuMapper">
+    <select id="selectByUserId" resultType="com.cqupt.entity.Menu">
+        select m.menu_id, m.cname, m.ename, m.path, m.component, m.icon, m.pid
+        from menu m,
+             user_role ur,
+             role_menu rm
+        where ur.role_id = rm.role_id
+          and rm.menu_id = m.menu_id
+          and m.status = 1
+          and ur.user_id = #{userId}
+    </select>
+</mapper>
+
+
