@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cqupt.Service.SimulationEquipmentService;
 import com.cqupt.entity.Result;
 import com.cqupt.entity.SimulationEquipment;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -69,4 +70,19 @@ public class SimulationEquipmentController {
         List<SimulationEquipment> list = simulationEquipmentService.listPage(page1);
         return Result.success(list);
     }
+
+    //导入仿真设备暂未实现
+   /* @GetMapping(value = "/exportSimulationEquipmentData")
+    public void exportSimulationEquipmentData( HttpServletResponse response) throws Exception {
+        List<SimulationEquipment> list = seService.selectSimulationEquipmentList();
+        // 创建Excel文档
+        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("仿真设备信息","仿真设备信息"),
+                SimulationEquipment.class, list);
+
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" +
+                URLEncoder.encode("SimulationEquipment.xlsx", "UTF-8"));
+        response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
+        workbook.write(response.getOutputStream());
+
+    }*/
 }
