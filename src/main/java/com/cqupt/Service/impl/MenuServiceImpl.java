@@ -1,7 +1,7 @@
 package com.cqupt.Service.impl;
 
 import com.cqupt.Service.MenuService;
-import com.cqupt.entity.Menu;
+import com.cqupt.pojo.Entity.Menu;
 import com.cqupt.mapper.MenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

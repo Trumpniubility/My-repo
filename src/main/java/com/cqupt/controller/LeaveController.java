@@ -2,9 +2,9 @@ package com.cqupt.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.cqupt.Service.LeaveService;
-import com.cqupt.entity.Constant;
-import com.cqupt.entity.Leave;
-import com.cqupt.entity.Result;
+import com.cqupt.constant.Constant;
+import com.cqupt.pojo.Entity.Leave;
+import com.cqupt.pojo.VO.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Date;

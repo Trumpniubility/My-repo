@@ -1,9 +1,8 @@
-package com.cqupt.entity;
+package com.cqupt.pojo.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
 package com.cqupt.mapper;
 
-import com.cqupt.entity.Menu;
+import com.cqupt.pojo.Entity.Menu;
 import org.apache.ibatis.annotations.Mapper;
 
 

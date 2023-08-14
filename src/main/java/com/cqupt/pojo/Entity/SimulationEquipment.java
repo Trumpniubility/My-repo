@@ -1,4 +1,4 @@
-package com.cqupt.entity;
+package com.cqupt.pojo.Entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @TableName("simulationequipment")
 public class SimulationEquipment {
 
-  @TableId(value = "simulation_equipemt_id",type = IdType.AUTO)
-  private int SimulationEquipmentId;
+  @TableId(value = "simulation_equipment_id",type = IdType.AUTO)
+  private int simulationEquipmentId;
 
   private String name;
   private String number;
@@ -43,6 +43,5 @@ public class SimulationEquipment {
 
   @TableField("update_time")
   private LocalDateTime updateTime;
-
 
 }

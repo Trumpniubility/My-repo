@@ -2,8 +2,8 @@ package com.cqupt.controller;
 
 
 import com.cqupt.Service.UserService;
-import com.cqupt.entity.Result;
-import com.cqupt.entity.User;
+import com.cqupt.pojo.VO.Result;
+import com.cqupt.pojo.Entity.User;
 import com.cqupt.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpServletRequest;

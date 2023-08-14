@@ -1,7 +1,7 @@
 package com.cqupt.Service;
 
 
-import com.cqupt.entity.User;
+import com.cqupt.pojo.Entity.User;
 
 public interface UserService {
     void add(User user);

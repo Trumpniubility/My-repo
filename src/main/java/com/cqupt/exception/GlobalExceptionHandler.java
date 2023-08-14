@@ -1,6 +1,6 @@
 package com.cqupt.exception;
 
-import com.cqupt.entity.Result;
+import com.cqupt.pojo.VO.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

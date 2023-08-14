@@ -1,4 +1,4 @@
-package com.cqupt.entity;
+package com.cqupt.pojo.VO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

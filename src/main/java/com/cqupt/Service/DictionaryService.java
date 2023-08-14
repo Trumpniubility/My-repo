@@ -1,6 +1,6 @@
 package com.cqupt.Service;
 
-import com.cqupt.entity.Dictionary;
+import com.cqupt.pojo.Entity.Dictionary;
 import java.util.List;
 
 public interface DictionaryService {

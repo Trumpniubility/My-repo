@@ -1,15 +1,12 @@
 package com.cqupt;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cqupt.entity.SimulationEquipment;
+import com.cqupt.pojo.Entity.SimulationEquipment;
 import com.cqupt.mapper.SimulationEquipmentMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Date;
-import java.util.List;
 
 @Slf4j
 @SpringBootTest

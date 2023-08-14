@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cqupt.Service.SimulationEquipmentService;
-import com.cqupt.entity.SimulationEquipment;
+import com.cqupt.pojo.Entity.SimulationEquipment;
 import com.cqupt.mapper.SimulationEquipmentMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;

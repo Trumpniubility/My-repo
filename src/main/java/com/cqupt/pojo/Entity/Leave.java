@@ -1,4 +1,4 @@
-package com.cqupt.entity;
+package com.cqupt.pojo.Entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -2,7 +2,7 @@ package com.cqupt.Service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cqupt.entity.SimulationEquipment;
+import com.cqupt.pojo.Entity.SimulationEquipment;
 
 import java.util.List;
 

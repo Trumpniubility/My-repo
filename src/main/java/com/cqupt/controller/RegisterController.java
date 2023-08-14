@@ -1,8 +1,8 @@
 package com.cqupt.controller;
 
 import com.cqupt.Service.UserService;
-import com.cqupt.entity.Result;
-import com.cqupt.entity.User;
+import com.cqupt.pojo.VO.Result;
+import com.cqupt.pojo.Entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

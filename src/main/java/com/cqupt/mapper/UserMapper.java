@@ -1,7 +1,7 @@
 package com.cqupt.mapper;
 
 
-import com.cqupt.entity.User;
+import com.cqupt.pojo.Entity.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,7 +1,7 @@
 package com.cqupt.Service.impl;
 
 import com.cqupt.Service.UserService;
-import com.cqupt.entity.User;
+import com.cqupt.pojo.Entity.User;
 import com.cqupt.mapper.UserMapper;
 import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;

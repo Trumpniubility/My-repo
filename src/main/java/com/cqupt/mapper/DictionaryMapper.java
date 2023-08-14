@@ -1,6 +1,6 @@
 package com.cqupt.mapper;
 
-import com.cqupt.entity.Dictionary;
+import com.cqupt.pojo.Entity.Dictionary;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

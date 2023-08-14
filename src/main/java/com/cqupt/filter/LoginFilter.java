@@ -1,10 +1,9 @@
 package com.cqupt.filter;
 
 import com.alibaba.fastjson.JSONObject;
-import com.cqupt.entity.Result;
+import com.cqupt.pojo.VO.Result;
 import com.cqupt.utils.JwtUtils;
 import jakarta.servlet.*;
-import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
