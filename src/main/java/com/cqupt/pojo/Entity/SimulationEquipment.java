@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @TableName("simulationequipment")
 public class SimulationEquipment {
 
-  @TableId(value = "simulation_equipment_id",type = IdType.AUTO)
+  @TableId(value = "simulation_equipment_id", type = IdType.AUTO)
   private int simulationEquipmentId;
 
   private String name;
@@ -36,12 +36,12 @@ public class SimulationEquipment {
   @TableField("lab_id")
   private int labId;
 
-  private String thumbnail;
+  @TableField("equipment_desc")
+  private String equipmentDesc;
 
   @TableField("create_time")
   private LocalDateTime createTime;
 
   @TableField("update_time")
   private LocalDateTime updateTime;
-
 }
