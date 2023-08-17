@@ -1,6 +1,9 @@
 package com.cqupt.Service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cqupt.Service.UserService;
+import com.cqupt.pojo.DTO.UserInfoDTO;
+import com.cqupt.pojo.DTO.UserRegisterDTO;
 import com.cqupt.pojo.Entity.User;
 import com.cqupt.mapper.UserMapper;
 import io.micrometer.common.util.StringUtils;
@@ -8,17 +11,26 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Slf4j
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
     @Autowired
     private UserMapper userMapper;
 
     //添加用户数据
     @Override
-    public void add(User user) {
+    public Boolean add(UserRegisterDTO user) {
+        user.setCreateTime(LocalDate.now());
+        user.setUpdateTime(LocalDate.now());
         //全部校验无误，调用方法存入数据库
-        userMapper.insert(user);
+        int insert = userMapper.insert(user);
+        if(insert==0){
+            return false;
+        }
+        return true;
     }
 
     //查询是否存在该用户
@@ -78,6 +90,13 @@ public class UserServiceImpl implements UserService {
 
         //校验成功则不用返回任何信息
         return null;
+    }
+
+    @Override
+    public int updateUser(UserInfoDTO userInfoDTO) {
+        int i = userMapper.updateUser(userInfoDTO);
+        log.info("更新数{}",i);
+        return i;
     }
 
 

@@ -2,6 +2,7 @@ package com.cqupt.controller;
 
 
 import com.cqupt.Service.UserService;
+import com.cqupt.pojo.DTO.UserInfoDTO;
 import com.cqupt.pojo.VO.Result;
 import com.cqupt.pojo.Entity.User;
 import com.cqupt.utils.JwtUtils;
@@ -27,22 +28,6 @@ public class UserController {
         Claims claims = JwtUtils.parseJwt(token);
         log.info("获取到用户信息{}",claims);
 
-//        String name = claims.get("Name", String.class);
-//        String password = claims.get("password", String.class);
-//        String intro = claims.get("intro", String.class);
-//        String email = claims.get("email", String.class);
-//        String phone = claims.get("phone", String.class);
-//        log.info("获取得到信息{}{}{}{}{}",name,password,intro,email,phone);
-
-       //封装到用户类中
-//        User userMes = new User();
-//        userMes.setName(name);
-//        userMes.setPassword(password);
-//        userMes.setIntro(intro);
-//        userMes.setEmail(email);
-//        userMes.setPhone(phone);
-
-
         return Result.success(claims);
     }
 
@@ -60,6 +45,16 @@ public class UserController {
         return Result.success();
     }
 
-    //查看仿真设备详细信息
+    //个人用户中心信息修改
+    @PutMapping("/update")
+    public Result updateUser(@RequestBody UserInfoDTO userInfoDTO){
 
+        int count = userService.updateUser(userInfoDTO);
+
+        if(count==0){
+            return Result.error("更新失败");
+        }
+
+        return Result.success();
+    }
 }

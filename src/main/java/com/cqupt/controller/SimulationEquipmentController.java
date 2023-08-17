@@ -1,6 +1,7 @@
 package com.cqupt.controller;
 
 
+import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -11,11 +12,20 @@ import com.cqupt.pojo.VO.PageResult;
 import com.cqupt.pojo.VO.Result;
 import com.cqupt.pojo.Entity.SimulationEquipment;
 import io.swagger.annotations.ApiOperation;
+import jakarta.servlet.http.HttpServletResponse;
+import jdk.dynalink.beans.StaticClass;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -50,6 +60,23 @@ public class SimulationEquipmentController {
         if (!b) {
             return Result.error("删除失败");
         }
+
+        return Result.success("删除成功");
+    }
+
+    //批量删除
+    @PostMapping("/BulkDelete")
+    public Result deleteSE(@RequestBody Integer[] ids) {
+        log.info("需要删除的设备ID{}",ids);
+
+        List<Integer> list = new ArrayList<>(Arrays.asList(ids));
+        log.info("集合{}",list);
+        
+        boolean result = simulationEquipmentService.removeBatchByIds(list);
+        if(!result){
+            return Result.error("删除失败");
+        }
+
 
         return Result.success("删除成功");
     }
@@ -130,16 +157,19 @@ public class SimulationEquipmentController {
     }
 
 //    TODO 导入仿真设备Excel暂未实现
-   /* @GetMapping(value = "/exportSimulationEquipmentData")
-    public void exportSimulationEquipmentData( HttpServletResponse response) throws Exception {
-        List<SimulationEquipment> list = seService.selectSimulationEquipmentList();
-        // 创建Excel文档
-        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("仿真设备信息","仿真设备信息"),
-                SimulationEquipment.class, list);
+    @PostMapping("/ExportExcel")
+    public Result exportExcel(){
+            // 设置文件导出的路径
+            String realPath = "D://file/";
+            File folder = new File(realPath);
+            if (!folder.isDirectory()){
+                folder.mkdirs();
+            }
+        List<SimulationEquipment> list = simulationEquipmentService.list();
+        String fileName = realPath  + "SimulationEquipment" + System.currentTimeMillis() + ".xlsx";
+            EasyExcel.write(fileName, SimulationEquipment.class).sheet("仿真设备信息表").doWrite(list);
 
-        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" +
-                URLEncoder.encode("SimulationEquipment.xlsx", "UTF-8"));
-        response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
-        workbook.write(response.getOutputStream());
-    }*/
+            return Result.success("导出成功");
+    }
+
 }

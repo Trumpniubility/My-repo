@@ -18,7 +18,7 @@ public class LogoutController {
     @PostMapping("/user/logout/{userId}")
     public Result logout(@PathVariable Integer userId){
         log.info("注销用户ID{}",userId);
-
+         
         //判断删除用户信息是否成功
         Boolean judge = userService.delete(userId);
         if(!judge){

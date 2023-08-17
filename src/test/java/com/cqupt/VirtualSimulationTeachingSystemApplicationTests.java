@@ -3,6 +3,7 @@ package com.cqupt;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cqupt.pojo.Entity.SimulationEquipment;
 import com.cqupt.mapper.SimulationEquipmentMapper;
+import com.cqupt.utils.SMSUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,13 @@ class VirtualSimulationTeachingSystemApplicationTests {
         System.out.println(page.getRecords());
 //        SimulationEquipment simulationEquipment = simulationEquipmentMapper.selectById(1);
 //        System.out.println(simulationEquipment);
+    }
+
+    @Test
+    public void Test(){
+        String param = "1234324";
+        System.out.println("{\"code\":\""+param+"\"}");
+//        System.out.println("{\"code\":\"1234\"}");
+        SMSUtils.sendMessage("cquptfan","SMS_462570807","13072349855","132123");
     }
 }

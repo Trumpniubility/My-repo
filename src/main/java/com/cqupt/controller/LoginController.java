@@ -5,6 +5,7 @@ import com.cqupt.Service.UserService;
 import com.cqupt.pojo.VO.Result;
 import com.cqupt.pojo.Entity.User;
 import com.cqupt.utils.JwtUtils;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,5 +56,4 @@ public class LoginController {
         //登录失败，返回错误信息
         return Result.error(300,"用户名或者密码错误");
     }
-
 }
